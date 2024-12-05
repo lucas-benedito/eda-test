@@ -7,8 +7,8 @@
         host: 0.0.0.0
         port: 5000
   rules:
-    - name: server down
-      condition: event.alert.labels.job == "server" and event.alert.status == "firing"
+    - name: Say Hello
+      condition: event.payload.message == "Test response"
       action:
-        run_playbook:
-          name: remediation-playbooks/server-playbook.yml
+        run_job_template:
+          name: say-what.yml
